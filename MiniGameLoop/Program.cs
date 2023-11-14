@@ -31,8 +31,9 @@ namespace MiniGameLoop
             // 1. init -- in unity = StartUp() -- run once
             char avatar = '@';
             bool gameOver = false;
-            int x = 10; //player position
+            int x = 30; //player position
             int y = 10; //player position
+
                 //game loop
             while(gameOver != true) // !=   =   is not true
             {
@@ -44,11 +45,26 @@ namespace MiniGameLoop
                     y = y - 1;
                     if (y < 0) y = 0;
                 }
-
+                if(input.Key == ConsoleKey.S)
+                {
+                    y = y + 1;
+                    if (y < 0) y = 0;
+                    if (y > 20) y = 20;
+                }
+                if (input.Key == ConsoleKey.D)
+                {
+                    x = x + 1;
+                    if (x < 0) x = 0;
+                    if (x > 60) x = 60;
+                }
+                if(input.Key == ConsoleKey.A)
+                {
+                    x = x - 1;
+                    if (x < 0) x = 0;
+                }
                 //3. draw -- in unity auto happens
                 Console.SetCursorPosition(x, y); // player position
                 Console.WriteLine(avatar); //player avatar
-
 
             }
 
